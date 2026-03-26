@@ -92,6 +92,11 @@ app.get('/api/config', (req, res) => {
   });
 });
 
+// ── Health endpoint (for deployment checks) ─────────────────────
+app.get('/health', (req, res) => {
+  res.json({ ok: true, service: 'anveshna-backend' });
+});
+
 // ── Socket.IO connections ───────────────────────────────────────
 io.on('connection', (socket) => {
   console.log(`[WS]   Client connected: ${socket.id}`);
